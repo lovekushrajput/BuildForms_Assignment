@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+now give the file redeme file
 
-## Getting Started
+# Production Control Dashboard
 
-First, run the development server:
+## About the Project
+Production Control Dashboard is a simple factory management dashboard.
+
+It helps an operations manager view production jobs, check their status, see due dates, and know which machine is assigned to each job.
+
+The dashboard also allows searching, filtering, sorting, viewing job details, and updating the job status.
+
+## Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+
+
+## Features
+
+- View all production jobs in a table
+- Search by Job ID, product name, or customer
+- Filter jobs by status
+- Sort jobs by due date or quantity
+- View job details in a side panel
+- View assigned machine
+- View notes and issues
+- Update job status
+- Summary cards for:
+  - Total Jobs
+  - Delayed Jobs
+  - Due Soon
+  - Completed Jobs
+- Responsive layout
+- Local mock data
+
+## Setup
+
+Clone the repository:
 
 ```bash
+git clone git@github.com:lovekushrajput/BuildForms_Assignment.git
+
+Go to the project folder:
+
+cd production-control-dashboard
+
+Install dependencies:
+
+npm install
+
+Start the development server:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open the application in your browser:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+app/
+  page.tsx
+  layout.tsx
+  globals.css
 
-To learn more about Next.js, take a look at the following resources:
+components/
+  DashboardHeader.tsx
+  SummaryCards.tsx
+  JobFilters.tsx
+  JobsTable.tsx
+  JobRow.tsx
+  JobDetailPanel.tsx
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+components/ui/
+  shadcn/ui components
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+data/
+  jobs.ts
 
-## Deploy on Vercel
+types/
+  jobs.ts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Component Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+DashboardHeader - Shows the dashboard title and short description.
+SummaryCards - Shows the main production job numbers.
+JobFilters - Handles search, status filter, and sorting.
+JobsTable - Displays the list of production jobs.
+JobRow - Displays the information for one job.
+JobDetailPanel - Shows the selected job details and allows the status to be updated.
+data/jobs.ts - Contains the local mock job data.
+types/jobs.ts - Contains the TypeScript types used in the project.
+page.tsx - Handles the main state, filtering, sorting, job selection, and status updates.
+
+## Assumptions
+
+I used local mock data because a backend was not required.
+No database or authentication is used.
+A job can have four statuses: Pending, In Progress, Delayed, and Completed.
+Status changes are stored only while the application is running.
+Each job has one assigned machine.
+I considered jobs due within the next two days as "Due Soon".
+
+## What I Would Improve With More Time
+
+Connect the dashboard to a real backend and database.
+Add real machine status and maintenance information.
+Add better loading and error states.
+Add pagination for a larger number of jobs.
+Improve date formatting.
+Add more detailed issue tracking.
+Add user permissions for changing job status.
+Add tests for the main dashboard features.
